@@ -1,0 +1,401 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.background_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+/* Container to center content */
+.acenter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.logo {
+  margin-bottom: 20px;     /* Space between the logo and buttons */
+  max-width: 200px;        /* Limit the maximum width of the logo */
+}
+.button-container {
+  display: flex;
+  align-items: center;    /* Center buttons horizontally */
+}
+.button1 {
+  font-size: 20px;
+  color: #f384a3;
+  margin: 0 10px;
+  padding: 18px 72px;
+  border: 3px solid #f384a3;
+  background: transparent;
+  border-radius: 50px; /* جعل الزر بيضاوي الشكل */
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+}
+
+.button1:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #f384a3;
+  border-radius: 50px; /* جعل الخلفية البيضاوية تتطابق مع شكل الزر */
+  box-shadow: inset 2px 2px 2px 0 rgba(255, 255, 255, 0.5),
+  7px 7px 20px 0 rgba(0,0,0,0.1),
+  4px 4px 5px 0 rgba(0,0,0,0.1);
+  z-index: -1;
+  transition: width 0.5s ease; /* زيادة مدة الانتقال لتكون أكثر سلاسة */
+}
+
+.button1:hover {
+  color: #fff;
+}
+
+.button1:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+.button1:active {
+  top: 2px;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+.buttonpw:active{
+  transform: scale(0.98);
+
+}
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.home::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}
+.home.show::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Form */
+.form_container {
+  background: url("../img/images/back.png");
+  background-size: cover;
+  position: fixed;
+  max-width: 320px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 101;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+}
+.home.show .form_container {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+.form_close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #0b0217;
+  font-size: 25px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.form_close1 {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #0b0217;
+  font-size: 25px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.form_container h2 {
+  font-size: 22px;
+  color: #0b0217;
+  text-align: center;
+}
+.input_box {
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* إضافة ظل حول الأيقونة */
+
+}
+.input_box input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  color: #333;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+}
+.input_box input:focus {
+  border-color: #f384a3;
+}
+.input_box i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #707070;
+}
+.input_box i.email,
+.input_box i.password {
+  left: 0;
+}
+.input_box input:focus ~ i.email,
+.input_box input:focus ~ i.password {
+  color: #f384a3;
+}
+.input_box i.pw_hide {
+  right: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+.input_box1 {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: 35px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* إضافة ظل حول الأيقونة */
+
+}
+.input_box1 input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  color: #333;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+}
+.input_box1 input:focus {
+  border-color: #f384a3;
+}
+.input_box1 i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: #707070;
+}
+.input_box1 i.email,
+.input_box1 i.uil-user,
+.input_box1 i.password {
+  left: 0;
+}
+.input_box1 input:focus ~ i.email,
+.input_box1 input:focus ~ i.uil-user,
+.input_box1 input:focus ~ i.password {
+  color: #f384a3;
+}
+.input_box1 i.pw_hide {
+  right: 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+.option_field {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form_container a {
+  color: #f384a3;
+  font-size: 12px;
+}
+.form_container a:hover {
+  text-decoration: underline;
+}
+.checkbox {
+  display: flex;
+  column-gap: 8px;
+  white-space: nowrap;
+}
+.checkbox input {
+  accent-color: #f384a3;
+}
+.checkbox label {
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  color: #0b0217;
+}
+.form_container .button {
+  position: relative;
+  background: #fcbcb4;
+  border: 2px solid #f384a3;
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px; /* تكبير الخط */
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form_container .button .video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form_container .button .button-text {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  font-size: 25px; /* تكبير الخط */
+}
+
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none; /* إخفاء الفيديو بشكل افتراضي */
+
+}
+.button.video-playing {
+  background-color: transparent; /* إزالة لون الخلفية عندما يكون الفيديو قيد التشغيل */
+}
+
+.forgot_password {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 105;
+  background: url("../img/images/back.png");
+  background-size: cover;
+  max-width: 320px;
+  width: 100%;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.forgot_password.show {
+  display: block;
+}
+.buttonpw {
+  color: #f384a3; /* اللون الافتراضي للنص */
+  text-decoration: none; /* إزالة أي تزيين تحت النص */
+  cursor: pointer; /* تغيير مؤشر الماوس عند التحويم */
+  position: relative; /* لتحكم أفضل في التنسيقات الأخرى */
+  padding: 5px 10px; /* إضافة مسافة داخل الزر */
+  font-size: 15px;
+}
+
+.buttonpw:hover {
+  text-decoration: underline; /* وضع خط تحت النص عند التحويم */
+  border-color: #d36c85; /* تغيير لون الحدود عند التحويم */
+}
+.code_form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 105;
+  background: url("../img/images/back.png");
+  background-size: cover;
+  max-width: 320px;
+  width: 100%;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.code_form.show {
+  display: block;
+}
+#backEmail,
+#l1,
+#confirm,
+.input_box2{
+  display: none;
+}
+
+#l3,
+#confirm1,
+.input_box3{
+  display: none;
+}
+.input_box3 input{
+  margin: 10px 0;
+  width: 100%;
+}
